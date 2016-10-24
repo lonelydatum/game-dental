@@ -61,6 +61,9 @@ class CupStore{
 			this.difficultyHarder()
 		}
 		this.tartarList.push(foodItem)
+		// if(this.tartarList.length===1) {
+		// 	this.statusUpdate(this.STATUS_END)
+		// }
 	}
 
 
@@ -109,5 +112,6 @@ class CupStore{
 CupStore.prototype.STATUS_SHUFFLE = 0
 CupStore.prototype.STATUS_SHUFFLING = 1
 CupStore.prototype.STATUS_SELECT = 2
+CupStore.prototype.STATUS_END = 3
 
 export default new CupStore()

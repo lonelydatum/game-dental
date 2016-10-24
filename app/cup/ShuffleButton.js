@@ -30,7 +30,7 @@ class ShuffleButton extends Phaser.Group {
 
 
 		this.scale.set(0)
-		this.show(1)
+
 
 
 	}

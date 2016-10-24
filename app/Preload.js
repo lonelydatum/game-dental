@@ -10,7 +10,7 @@ function loadUser(user) {
 }
 
 export default function () {
-	const user = loadUser('gar')
+	const user = loadUser('eliot')
 	 // game.load.spritesheet('button', 'images/buttons/button_sprite_sheet.png', 193, 71);
 	 game.load.image('shuffle', 'images/buttons/shuffle.png');
 	 game.load.image('pick', 'images/buttons/pick.png');

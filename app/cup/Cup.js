@@ -26,22 +26,18 @@ class Cup {
 		this.createCups()
 
 
-
-		// var button = game.add.button(0, 0, 'shuffle', this.selected, this, 2, 1, 0);
-
 		window.game.stage.backgroundColor = "#FFFFFF";
 		autorun( () => {
-
+			console.log(cupStore.status);
 			if(cupStore.status === cupStore.STATUS_SHUFFLE) {
 				shuffleButton.show()
-			}else {
+
+			}else if(cupStore.status === cupStore.STATUS_END) {
+
 			}
 		} )
 
 		this.cat = new Cat()
-
-		// game.add.sprite(cat)
-
 
 	}
 
@@ -55,7 +51,7 @@ class Cup {
 		tl.add(this.shuffle())
 
 		if(cupStore.getDifficulty().speed <= .6) {
-			TweenMax.delayedCall(_.random(2.5,4), this.cat.random.bind(this.cat))
+			TweenMax.delayedCall(_.random(1.8,3), this.cat.random.bind(this.cat))
 
 
 		}
