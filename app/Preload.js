@@ -1,4 +1,4 @@
-
+import _ from 'lodash'
 
 function loadUser(user) {
 	return {
@@ -24,7 +24,9 @@ function loadUser(user) {
 // };
 
 export default function () {
-	const user = loadUser('gar')
+	const profiles = ['gar', 'eliot']
+
+	const user = loadUser(profiles[_.random(0,1)])
 	game.load.image('shuffle', 'images/buttons/shuffle.png');
 	game.load.image('pick', 'images/buttons/pick.png');
 
