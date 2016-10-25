@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.use( '/gar', express.static('dist'));
+app.use( express.static('dist'));
 
 // // GET method route
 // app.get('/dental', function (req, res) {
