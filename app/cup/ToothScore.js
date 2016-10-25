@@ -16,8 +16,23 @@ class ToothScore extends Phaser.Group {
 
 		this.alpha = .1
 		autorun(() => {
+			// console.log(cupStore.tartarList.length);
 			this.check()
 		})
+	}
+
+	reset() {
+		console.log(this);
+		if(this.image) {
+			this.image.destroy()
+		}
+
+		if(this.msk) {
+			this.msk.destroy()
+		}
+
+		this.alpha = .1
+
 	}
 
 	check() {
@@ -27,33 +42,36 @@ class ToothScore extends Phaser.Group {
 
 
 
+
 		if(this.index === lastIndex) {
 
 			if(last) {
 				let goodBad = (last.tartar>1) ? 'bad' : 'good'
-				const image = game.add.image(0, 0, `tooth-${goodBad}`)
+				this.image = game.add.image(0, 0, `tooth-${goodBad}`)
 				const tl = new TimelineMax()
 				tl.to(this, .3, {alpha:1})
 
 
-				this.add(image)
+				this.add(this.image)
 
 				if(goodBad==='bad') {
-					const msk = game.add.graphics(0,0)
-
-					msk.beginFill(0xFFFFFF)
-
-					msk.drawRect(0,0, image.width, image.height )
-					// msk.anchor.set(.5, 1)
-					TweenMax.to(msk, .5, {height:0, ease:Sine.easeOut, y:image.height})
-					this.add(msk)
+					this.msk = game.add.graphics(0,0)
+					this.msk.beginFill(0xFFFFFF)
+					this.msk.drawRect(0,0, this.image.width, this.image.height )
+					TweenMax.to(this.msk, .5, {height:0, ease:Sine.easeOut, y:this.image.height})
+					this.add(this.msk)
 				}else if(goodBad==='good') {
-					// tl.from(image, .5, {alpha:0, delay:1})
 					tl.to(this, .3, {y:'-=20', ease:Back.easeOut, yoyo:true, repeat:5}, "+=1")
 
 				}
 			}
 		}
+
+
+
+
+
+
 
 
 	}

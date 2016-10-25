@@ -1,6 +1,7 @@
 import { observable, autorun } from 'mobx';
 import cupStore from './CupState.js'
 
+import PlayAgain from './PlayAgain.js'
 import CupItem from './CupItem.js'
 import CupScore from './CupScore.js'
 import Cat from './Cat.js'
@@ -13,10 +14,13 @@ class Cup {
 
 
 		const table = game.add.sprite(0, 0, 'table')
-		table.scale.set(.8)
+		table.scale.set(1)
 		table.anchor.set(.5)
 		table.x = game.world.centerX
-		table.y = 1000
+		table.y = 1100
+
+		const playAgain = new PlayAgain()
+		playAgain.reset.add(this.reset.bind(this))
 
 
 		const shuffleButton = new ShuffleButton()
@@ -31,14 +35,23 @@ class Cup {
 			console.log(cupStore.status);
 			if(cupStore.status === cupStore.STATUS_SHUFFLE) {
 				shuffleButton.show()
+			}
 
-			}else if(cupStore.status === cupStore.STATUS_END) {
 
+			if(cupStore.tartarList.length>3) {
+				console.log('show');
+				playAgain.show()
+				shuffleButton.visible = false
 			}
 		} )
 
 		this.cat = new Cat()
 
+	}
+
+	reset() {
+		this.score.reset()
+		cupStore.playAgain()
 	}
 
 	selected() {
@@ -52,13 +65,11 @@ class Cup {
 
 		if(cupStore.getDifficulty().speed <= .6) {
 			TweenMax.delayedCall(_.random(1.8,3), this.cat.random.bind(this.cat))
-
-
 		}
 	}
 
 	createScore() {
-		new CupScore()
+		this.score = new CupScore()
 	}
 
 	shuffle() {

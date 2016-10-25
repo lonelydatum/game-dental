@@ -61,12 +61,14 @@ class CupStore{
 			this.difficultyHarder()
 		}
 		this.tartarList.push(foodItem)
-		// if(this.tartarList.length===1) {
-		// 	this.statusUpdate(this.STATUS_END)
-		// }
+
 	}
 
-
+	@action playAgain() {
+		this.tartarList = []
+		this.difficultyIndex = 0
+		this.statusUpdate(this.STATUS_SHUFFLE)
+	}
 
 	@action getDifficulty() {
 		return this.difficulty[this.difficultyIndex]

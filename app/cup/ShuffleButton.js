@@ -44,11 +44,12 @@ class ShuffleButton extends Phaser.Group {
 	}
 
 	show(delay=2) {
+		this.visible = true
 		TweenMax.to(this.scale, .5, {x:1, y:1, alpha:1, ease:Back.easeOut, delay, onComplete:this.spin.bind(this)})
 	}
 
 	spin() {
-		TweenMax.to(this.image, 1.5, {rotation: Math.PI, yoyo:true, repeat:2, repeatDelay:.5, ease:Back.easeOut, delay:.5})
+		TweenMax.to(this.image, 1.5, {rotation: `+=${Math.PI}`, yoyo:true, repeat:2, repeatDelay:.5, ease:Back.easeOut, delay:.5})
 	}
 }
 

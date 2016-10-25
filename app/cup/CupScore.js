@@ -18,23 +18,15 @@ class Score extends Phaser.Group{
 		})
 	}
 
-	createText() {
-		this.text = game.add.text(0, 0, 'dd', {fill:'#FF0000'})
-		this.add(this.text)
-		this.teeth.anchor.set(.5)
-		this.teeth.x = game.world.centerX
-		this.teeth.y = 200
-	}
+	// createText() {
+	// 	this.text = game.add.text(0, 0, 'dd', {fill:'#FF0000'})
+	// 	this.add(this.text)
+	// 	this.teeth.anchor.set(.5)
+	// 	this.teeth.x = game.world.centerX
+	// 	this.teeth.y = 200
+	// }
 
-	createSmile() {
-		this.teeth = game.add.image(100, 50, 'teeth')
-		const teethWidth = game.cache.getImage('teeth').width
-		if(game.width < teethWidth) {
-			this.teeth.scale.set((game.width-50) / teethWidth)
-		}
 
-		this.add(this.teeth)
-	}
 
 	createToothGroup() {
 		this.toothGroup = game.add.group();
@@ -52,8 +44,6 @@ class Score extends Phaser.Group{
 
 
 
-		// this.toothGroup.x = 25
-
 		let padding = (game.width - this.toothGroup.width) / 2
 		let scaleTo = 1
 		if(this.toothGroup.width > game.width) {
@@ -64,12 +54,17 @@ class Score extends Phaser.Group{
 
 		this.toothGroup.scale.set(scaleTo)
 		this.toothGroup.x = padding * scaleTo
-		// console.log(padding);
 
-		// this.toothGroup.scale.set(scaleX)
-		// this.toothGroup.y = (this.teeth.height/2) + this.teeth.y + 20
+
 
 	}
+
+	reset() {
+		this.toothGroup.children.map((item) => {
+			item.reset()
+		})
+	}
+
 
 	updateScore(score) {
 		this.text.text = score

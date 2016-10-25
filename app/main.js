@@ -1,4 +1,4 @@
-
+var WebFont = require('webfontloader');
 import { observable, autorun } from 'mobx';
 
 import preload from './Preload.js'
@@ -18,6 +18,16 @@ window.mobilecheck = function() {
 
 
 
+// WebFont.load({
+// 	google: {
+//   		families: ['Droid Sans', 'Droid Serif']
+// 	}
+// });
+
+// console.log(WebFont);
+
+
+
 
 function getSize() {
 	let w = window.innerWidth
@@ -30,14 +40,14 @@ function getSize() {
 }
 
 const size = getSize()
+setTimeout(start, 2000)
 
-window.game = new Phaser.Game(size.w, size.h, 'detal-game', Phaser.CANVAS,  {
-	preload,
-	create,
-	resize: function() {
-		console.log(this);
-	}
-})
+function start() {
+	window.game = new Phaser.Game(size.w, size.h, 'detal-game', Phaser.CANVAS,  {
+		preload,
+		create
+	})
+}
 
 
 
