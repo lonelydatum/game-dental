@@ -18,15 +18,6 @@ window.mobilecheck = function() {
 
 
 
-// WebFont.load({
-// 	google: {
-//   		families: ['Droid Sans', 'Droid Serif']
-// 	}
-// });
-
-// console.log(WebFont);
-
-
 
 
 function getSize() {
@@ -40,6 +31,8 @@ function getSize() {
 }
 
 const size = getSize()
+
+
 setTimeout(start, 1000)
 
 function start() {
@@ -47,6 +40,10 @@ function start() {
 		preload,
 		create
 	})
+	console.log(size);
+	const social = document.getElementById('social');
+	console.log(social);
+	TweenMax.set(social, {x:size.w/2-20})
 }
 
 

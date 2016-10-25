@@ -29,28 +29,26 @@
       }
 
       canvas {
-        /*border: 1px solid grey;*/
         box-shadow: 0px 0px 8px rgba(0,0,0,.2);
-        /*display: block;*/
-        display: none;
+        display: block;
       }
 
       #dental-game {
         position: relative;
         display: flex;
-        justify-content: center;
+        /*justify-content: center;*/
       }
 
-      .social {
+      #social {
         cursor: pointer;
         font-size: 22px;
         margin-top: 10px;
         position: absolute;
+        z-index: 99;
         display: flex;
         justify-content: center;
-        /*border: 1px solid green;*/
-
       }
+
       .fa-twitter {
         padding-right: 10px;
       }
@@ -84,7 +82,7 @@
 
 
     <div id="dental-game">
-      <div class="social">
+      <div id="social">
         <a class="twitter-share-button"
           href="http://twitter.com/share?text=Waste your playing Arcade Dental&url=http://game.lonelydatum.com/dental&hashtags=phaserjs&via=lonelydatum"
           target="_blank"

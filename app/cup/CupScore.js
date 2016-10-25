@@ -38,7 +38,7 @@ class Score extends Phaser.Group{
 			this.toothGroup.add(tooth)
 		}
 
-		this.toothGroup.y = 90
+		this.toothGroup.y = 80
 
 		let scaleX = .5
 
