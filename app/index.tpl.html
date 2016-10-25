@@ -7,28 +7,70 @@
     <meta name="description" content="just another react + webpack boilerplate">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
     <style type="text/css">
       body, html{
         padding: 0;
         margin: 0;
+        color:#d24c9b;
         font-family: 'Archivo Black', sans-serif;
         display:flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+        flex-direction: column;
       }
 
       canvas {
         /*border: 1px solid grey;*/
         box-shadow: 0px 0px 8px rgba(0,0,0,.2);
-        display: block;
+        /*display: block;*/
+        display: none;
       }
+
+      #dental-game {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .social {
+        font-size: 22px;
+        margin-top: 10px;
+        position: absolute;
+        /*border: 1px solid green;*/
+
+      }
+      .fa-twitter {
+        padding-right: 10px;
+      }
+
     </style>
   </head>
   <body>
+    <div id="dental-game">
+      <div class="social">
+        <a class="twitter-share-button"
+          href="https://twitter.com/share"
+          data-size="small"
+          data-url="http://game.lonelydatum.com/dental"
+          data-via="lonelydatum"
+          data-related="twitterapi,twitter"
+          data-hashtags="example,demo"
+          data-text="custom share text"
+        >
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+
+
+
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+      </div>
+    </div>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/phaser.js"></script>
     <script src="js/signals.min.js"></script>
+
 
   </body>
 </html>

@@ -40,10 +40,10 @@ function getSize() {
 }
 
 const size = getSize()
-setTimeout(start, 2000)
+setTimeout(start, 1000)
 
 function start() {
-	window.game = new Phaser.Game(size.w, size.h, 'detal-game', Phaser.CANVAS,  {
+	window.game = new Phaser.Game(size.w, size.h,  Phaser.CANVAS, 'dental-game', {
 		preload,
 		create
 	})
