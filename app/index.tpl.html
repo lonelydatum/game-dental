@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Arcade Dental</title>
-    <meta name="description" content="just another react + webpack boilerplate">
+    <meta name="description" content="Waste your time playing Arcade Dental. Follow the apple but don't let the kitty cat distract you.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -35,42 +35,74 @@
       }
 
       .social {
+        cursor: pointer;
         font-size: 22px;
         margin-top: 10px;
         position: absolute;
+        display: flex;
+        justify-content: center;
         /*border: 1px solid green;*/
 
       }
       .fa-twitter {
         padding-right: 10px;
       }
+      a{
+        color: #d24c9b;
+      }
 
     </style>
   </head>
   <body>
+    <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '514223558786546',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+
+
     <div id="dental-game">
       <div class="social">
         <a class="twitter-share-button"
-          href="https://twitter.com/share"
-          data-size="small"
-          data-url="http://game.lonelydatum.com/dental"
-          data-via="lonelydatum"
-          data-related="twitterapi,twitter"
-          data-hashtags="example,demo"
-          data-text="custom share text"
+          href="http://twitter.com/share?text=Waste some playing Arcade Dental&url=http://game.lonelydatum.com/dental&hashtags=phaserjs&via=lonelydatum"
+          target="_blank"
         >
           <i class="fa fa-twitter" aria-hidden="true"></i>
         </a>
 
 
-
-        <i class="fa fa-facebook" aria-hidden="true"></i>
+       <div id="shareBtn">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </div>
       </div>
     </div>
     <script src="js/TweenMax.min.js"></script>
     <script src="js/phaser.js"></script>
     <script src="js/signals.min.js"></script>
-
+    <script>
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+    method: 'share',
+    display: 'popup',
+    href: 'http://game.lonelydatum.com/dental',
+  }, function(response){});
+}
+</script>
 
   </body>
 </html>
