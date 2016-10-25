@@ -38,8 +38,8 @@ class Cup {
 			}
 
 
-			if(cupStore.tartarList.length>3) {
-				console.log('show');
+			if(cupStore.tartarList.length>=10) {
+				ga('send', {'hitType': 'event', 'eventCategory': 'game-dental', 'eventAction': 'finished', 'eventLabel': 'gar' });
 				playAgain.show()
 				shuffleButton.visible = false
 			}
